@@ -41,9 +41,10 @@ class FGitApp extends StatelessWidget {
 
   Future<GitDir?> _getGitDir() async {
     print('Current directory: ${p.current}');
+    var path = p.current;
 
-    if (await GitDir.isGitDir(p.current)) {
-      return await GitDir.fromExisting(p.current);
+    if (await GitDir.isGitDir(path)) {
+      return await GitDir.fromExisting(path);
     } else {
       return Future.value(null);
     }
